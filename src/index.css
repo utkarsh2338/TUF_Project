@@ -1,0 +1,103 @@
+/* ── Google Fonts (must be before @tailwind) ── */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* ═══════════════════════════════════════
+   CSS Custom Properties — Light (default)
+   ═══════════════════════════════════════ */
+:root {
+  --theme-primary:       #3b82f6;
+  --theme-primary-light: #93c5fd;
+
+  /* Surfaces */
+  --surface:        #ffffff;
+  --surface-raised: #f8fafc;
+  --surface-border: rgba(0, 0, 0, 0.06);
+
+  /* Text */
+  --text-primary:   #1e293b;
+  --text-secondary: #64748b;
+  --text-muted:     #94a3b8;
+  --text-disabled:  #cbd5e1;
+
+  /* Weekend accents */
+  --sat-color: #6366f1;   /* indigo — Saturday */
+  --sun-color: #ef4444;   /* red    — Sunday   */
+
+  /* Page background */
+  --page-bg: radial-gradient(ellipse at 30% 0%, #e0e7ff 0%, #f0f4ff 40%, #f8fafc 100%);
+
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ═══════════════════════════════════════
+   CSS Custom Properties — Dark
+   ═══════════════════════════════════════ */
+html.dark {
+  --surface:        #1a2236;
+  --surface-raised: #111827;
+  --surface-border: rgba(255, 255, 255, 0.07);
+
+  --text-primary:   #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-muted:     #64748b;
+  --text-disabled:  #374151;
+
+  --sat-color: #818cf8;   /* lighter indigo in dark */
+  --sun-color: #f87171;   /* lighter red in dark    */
+
+  --page-bg: radial-gradient(ellipse at 30% 0%, #0f172a 0%, #111827 60%, #0f172a 100%);
+}
+
+/* ── Base Reset ── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: var(--page-bg);
+  min-height: 100vh;
+  color: var(--text-primary);
+  transition: background 0.4s ease, color 0.3s ease;
+}
+
+/* ── Custom scrollbar ── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: var(--theme-primary);
+  border-radius: 9999px;
+}
+
+/* ── Text selection ── */
+::selection { background: var(--theme-primary); color: white; }
+
+/* ── Font utilities ── */
+.font-display { font-family: 'Playfair Display', Georgia, serif; }
+
+/* ── Calendar card ── */
+.calendar-card {
+  background: var(--surface);
+  transition: background 0.35s ease, box-shadow 0.35s ease;
+}
+
+/* ── Dark mode calendar specific overrides ── */
+html.dark .cal-footer   { background: var(--surface); border-color: var(--surface-border); }
+html.dark .cal-grid-pad { background: var(--surface); }
+
+/* ── Note dot pop-in ── */
+@keyframes notePopIn {
+  0%   { transform: scale(0); opacity: 0; }
+  70%  { transform: scale(1.3); }
+  100% { transform: scale(1);   opacity: 1; }
+}
