@@ -12,13 +12,13 @@ function App() {
       className="relative flex items-start sm:items-center justify-center min-h-screen sm:p-6 md:p-10 font-sans transition-colors duration-300"
       style={{ background: 'var(--page-bg)' }}
     >
-      {/* ── Dark Mode Toggle ── fixed top-right, always visible */}
+      {/* Dark mode toggle — bottom-right on mobile (avoids hero upload btn), top-right on desktop */}
       <motion.button
         onClick={toggleDark}
         whileTap={{ scale: 0.88, rotate: dark ? -15 : 15 }}
         whileHover={{ scale: 1.1 }}
         transition={{ type: 'spring', stiffness: 500, damping: 25 }}
-        className="fixed top-4 right-4 z-[100] w-10 h-10 rounded-full flex items-center justify-center shadow-lg border"
+        className="fixed bottom-4 right-4 md:bottom-auto md:top-4 md:right-4 z-[100] w-10 h-10 rounded-full flex items-center justify-center shadow-lg border"
         style={{
           background : dark ? '#1e2433' : '#ffffff',
           borderColor: dark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.08)',

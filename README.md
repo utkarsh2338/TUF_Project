@@ -4,6 +4,18 @@ An interactive wall calendar built with React, TypeScript, and Tailwind CSS. Pic
 
 ---
 
+## Core Features
+
+- 🗓 **Month navigation** with animated transitions and a "Go to Today" shortcut
+- 📅 **Date & range selection** with live hover preview
+- 📝 **Notes** — per-date and per-range, isolated by month, with a hover tooltip preview
+- ⭐ **Pin dates** — mark important dates with a gold star, persisted across sessions
+- 🖼️ **Custom hero photo** per month — upload, drag-drop, or reset to default; accent color auto-extracted
+- 🌙 **Dark mode** toggle — remembers your preference and respects system setting
+- 💾 **Full localStorage persistence** — nothing is lost on refresh
+
+---
+
 ## Features
 
 ### 📅 Calendar
